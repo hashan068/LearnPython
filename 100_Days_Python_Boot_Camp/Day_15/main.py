@@ -92,24 +92,24 @@ def process_coins():
 total = process_coins()
 print(f"The total value of your coins is: ${total:.2f}")
 
-def get_price(i, ):
-    if i == "espresso":
-        espresso_cost = MENU["espresso"]["cost"]
-    if i == "cappuccino":
-        cappuccino_cost = MENU["cappuccino]["cost"]
-    if i == "latte":
-        latte_cost = MENU["latte"]["cost"]
-        print(latte_cost)
+# def get_price(i, ):
+#     if i == "espresso":
+#         espresso_cost = MENU["espresso"]["cost"]
+#     if i == "cappuccino":
+#         cappuccino_cost = MENU["cappuccino]["cost"]
+#     if i == "latte":
+#         latte_cost = MENU["latte"]["cost"]
+#         print(latte_cost)
+#
+# def check_transaction_successful(m):
+#     if total <= m:
+#         total -= m
+#         print("Transaction Successful! ")
+#     else:
+#         print("Sorry That’s not enough money, Money refunded.")
 
-def check_transaction_successful(m):
-    if total <= m:
-        total -= m
-        print("Transaction Successful! ")
-    else:
-        print("Sorry That’s not enough money, Money refunded.")
 
-
-check_transaction_successful(total)
+# check_transaction_successful(total)
 
 
 
