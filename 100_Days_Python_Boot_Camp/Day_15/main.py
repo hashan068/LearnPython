@@ -33,7 +33,7 @@ resources = {
 request = input("what do you like : ")
 
 
-def check_resources(request, MENU):
+def check_resources(req, menu):
     if request == "report":
         print("Water:", resources["water"], "\nmilk:", resources["milk"], "\ncoffe:", resources["coffee"])
 
@@ -47,9 +47,9 @@ def check_resources(request, MENU):
             return False
 
     if request == "latte":
-        latte_water = MENU["espresso"]["ingredients"]["water"]
-        latte_milk = MENU["espresso"]["ingredients"]["milk"]
-        latte_coffee = MENU["espresso"]["ingredients"]["coffee"]
+        latte_water = MENU["latte"]["ingredients"]["water"]
+        latte_milk = MENU["latte"]["ingredients"]["milk"]
+        latte_coffee = MENU["latte"]["ingredients"]["coffee"]
 
         if (latte_water <= resources["water"] and latte_milk <= resources["milk"]
                 and latte_coffee <= resources["coffee"]):
@@ -58,18 +58,19 @@ def check_resources(request, MENU):
             return False
 
     if request == "cappuccino":
-        espresso_water = MENU["espresso"]["ingredients"]["water"]
-        espresso_milk = MENU["espresso"]["ingredients"]["milk"]
-        espresso_coffee = MENU["espresso"]["ingredients"]["coffee"]
+        espresso_water = MENU["cappuccino"]["ingredients"]["water"]
+        espresso_milk = MENU["cappuccino"]["ingredients"]["milk"]
+        espresso_coffee = MENU["cappuccino"]["ingredients"]["coffee"]
 
         if (espresso_water <= resources["water"] and espresso_milk <= resources["milk"]
                 and espresso_coffee <= resources["coffee"]):
             return True
         else:
             return False
+# and request != "report"
 
 
-if check_resources(request, resources) and request != "report":
+if check_resources(request, resources) :
     print(f"There are enough resources to make {request}.")
 else:
     print(f"Sorry, there are not enough resources to make {request}.")
@@ -90,6 +91,25 @@ def process_coins():
 # Call the function and display the result
 total = process_coins()
 print(f"The total value of your coins is: ${total:.2f}")
+
+def get_price(i, ):
+    if i == "espresso":
+        espresso_cost = MENU["espresso"]["cost"]
+    if i == "cappuccino":
+        cappuccino_cost = MENU["cappuccino]["cost"]
+    if i == "latte":
+        latte_cost = MENU["latte"]["cost"]
+        print(latte_cost)
+
+def check_transaction_successful(m):
+    if total <= m:
+        total -= m
+        print("Transaction Successful! ")
+    else:
+        print("Sorry That’s not enough money, Money refunded.")
+
+
+check_transaction_successful(total)
 
 
 
